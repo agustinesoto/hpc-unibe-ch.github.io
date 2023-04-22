@@ -23,7 +23,7 @@ this repo. A possible installation scenario for macOS using Homebrew might look
 like:
 
 ```
-# Install miniconda using Homebrew
+# Install miniconda using Homebrew: skip if you already installed conda 
 brew install miniconda
 
 # Setup conda
@@ -32,11 +32,13 @@ conda init "$(basename "${SHELL}")"
 
 # Fetch the documentation repository
 git clone https://github.com/hpc-unibe-ch/hpc-docs.git
-cd hpc-docs
 
 # Create and activate the environment
-conda create
+conda create -n hpcdocs python=3.10  
 conda activate hpcdocs
+
+# Install required package
+pip install mkdocs-material
 
 # Start the local mkdocs webserver that renders and displays all change instantly
 mkdocs serve
